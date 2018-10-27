@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>canvas</title>
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+
+    <div id="shapes">
+        <button onclick="Option.setShape('line')">直线</button>
+        <button onclick="Option.setShape('rect')">矩形</button>
+        <button onclick="Option.setShape('circle')">正圆</button>
+        <button onclick="Option.setShape('none')">无</button>
+
+        <button onclick="Option.last()">撤销</button>
+        <button onclick="Option.reset()">重做</button>
+        <button onclick="Option.submit()">提交</button>
+    </div>
+
+    <div>
+        <canvas id="content" width="600" height="600" onmousedown="Option.drawShape()" style="border:1px black solid"></canvas>
+    </div>
+
+    <script>
+        var Option = {
+            //面板显示的图片
+            img:null,
+            //保存已画过的图片，用来作撤销
+            imgs:null,
+            //容器dom对象
+            content:document.getElementById("content"),
+            //当前选择的图形
+            shape:"line",
+            //保存已画的图形，需要提交到后台
+            shapes:null,
+            //加载图片
+            loadImg:function(){
+                this.img.onload = function(){
+                    ctx.clearRect(0,0,600,600);
+                    ctx.drawImage(Option.img,0,0);
+                };
+            },
+            //初始化
+            init:function(imgsrc){
+                this.img = new Image();
+                this.img.src = imgsrc;
+                this.imgs = [this.img.src];
+                this.shapes = [];
+                ctx.strokeStyle="red";
+                ctx.lineWidth="2";
+                this.loadImg();
+            },
+            //设置形状
+            setShape:function(shape){
+                Option.shape = shape;
+            },
+            //撤销，返回上一步
+            last:function(){
+                var length = Option.shapes.length;
+                if(length<=0){
+                    return;
+                }
+                Option.shapes.pop();
+                Option.imgs.pop();
+                Option.img.src = Option.imgs[Option.imgs.length-1];
+                Option.loadImg();
+            },
+            //重做
+            reset:function(){
+                this.init("1.png");
+            },
+            //画矩形
+            drawRect:function(start,width,height){
+                ctx.rect(start.x,start.y,width,height);
+            },
+            //画线
+            drawLine:function (begin,end){
+                ctx.moveTo(begin.x,begin.y);
+                ctx.lineTo(end.x,end.y);
+            },
+            //画圆
+            drawCircle:function(center,radius){
+                ctx.arc(center.x,center.y,radius,0,Math.PI*2);
+            },
+            drawShape:function(){
+                    this.img.onload = null;
+                    var that = this;
+                    var xy = this.getMousePos();
+                    var nxy = Option.getMousePos();
+                    Option.content.onmousemove = function(e){
+                        ctx.clearRect(0,0,600,600);
+                        ctx.drawImage(Option.img,0,0);
+                        ctx.beginPath();
+                        nxy = Option.getMousePos();
+
+                        switch (that.shape){
+                            case "rect":
+                                Option.drawRect(xy,nxy.x-xy.x,nxy.y-xy.y);
+                                break;
+                            case "line":
+                                Option.drawLine(xy,nxy);
+                                break;
+                            case "circle":
+                                Option.drawCircle(xy,Math.sqrt( (nxy.x-xy.x)*(nxy.x-xy.x)+(nxy.y-xy.y)*(nxy.y-xy.y) ));
+                                break;
+                            case "none":
+                                break;
+                        }
+                        ctx.stroke();
+                    };
+
+                    Option.content.onmouseup = function(e){
+                        Option.img.src = Option.content.toDataURL('image/png');
+                        Option.imgs.push(Option.img.src);
+                        switch (that.shape){
+                            case "rect":
+                                Option.shapes.push({"type":that.shape,"x":xy.x,"y":xy.y,"width":nxy.x-xy.x,"height":nxy.y-xy.y});
+                                break;
+                            case "line":
+                                Option.shapes.push({"type":that.shape,"startx":xy.x,"starty":xy.y,"endx":nxy.x,"endy":nxy.y});
+                                break;
+                            case "circle":
+                                Option.shapes.push({"type":that.shape,"centerx":xy.x,"centery":xy.y,"radius":Math.sqrt( (nxy.x-xy.x)*(nxy.x-xy.x)+(nxy.y-xy.y)*(nxy.y-xy.y))});
+                                break;
+                            case "none":
+                                break;
+                        }
+
+                        Option.content.onmousemove = null;
+                        //如果鼠标动作太小，则认为无效
+                        if(Math.abs(nxy.x - xy.x) <= 10 && Math.abs(nxy.y - xy.y) <= 10){
+                            Option.last();
+                        }
+                    };
+            },
+            /**
+             * 获取相对画布的宽高
+             * @param event
+             * @returns {{x: Number, y: Number}}
+             */
+            getMousePos:function (event) {
+                var e = event || window.event;
+                var x = e.offsetX;
+                var y = e.offsetY;
+                return { 'x': x, 'y': y };
+            },
+            submit:function(){
+                console.log(this.shapes);
+            }
+        };
+
+        var canvas=document.getElementById('content');
+        var ctx=canvas.getContext('2d');
+        Option.init("1.png");
+
+        document.onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e.keyCode == 90 && e.ctrlKey){
+                Option.last();
+            }
+        }
+    </script>
+</body>
+</html>

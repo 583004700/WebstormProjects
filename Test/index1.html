@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body title="信息主体">
+<div contenteditable="true" style="width:300px;height: 200px;">
+    123232
+</div>
+<input type="month"/>
+<script>
+    var db = openDatabase('testDB', '1.0', 'Test DB', 10 * 1024 * 1024);
+//    db.transaction(function (context) {
+//        context.executeSql('CREATE TABLE IF NOT EXISTS testTable (id unique, name)');
+//        context.executeSql('INSERT INTO testTable (id, name) VALUES (0, "Byron")');
+//        context.executeSql('INSERT INTO testTable (id, name) VALUES (1, "Casper")');
+//        context.executeSql('INSERT INTO testTable (id, name) VALUES (2, "Frank")');
+//    });
+
+    db.transaction(function (context) {
+        context.executeSql('SELECT * FROM testTable order by id desc', [], function (context, results) {
+            var len = results.rows.length, i;
+            console.log('Got ' + len + ' rows.');
+            for (i = 0; i < len; i++) {
+                console.log('id: ' + results.rows.item(i).id);
+                console.log('name: ' + results.rows.item(i).name);
+            }
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+        .class1{
+            background: #444;
+            color: #eee;
+        }
+    </style>
+    <script type="text/javascript" src="/web/vuetest/js/vue.min.js" ></script>
+</head>
+<body>
+    <div id="app">
+        <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+        <br/><br/>
+        <div v-bind:class="{'class1': class1}">
+            v-bind:class 指令
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            class1: false
+        }
+    })
+</script>
+</html>
