@@ -18,13 +18,19 @@
             $("#se").append("<option value='5'>打球</option>");
             //更新表格内容
             form.render();
-            console.log("vb");
+        }
+
+        function show(){
+            console.log($("#f").serialize());
+        }
+        function changeValue(){
+            $("#v").val(18);
         }
     </script>
 </head>
 <body>
 
-    <form class="layui-form" action="" lay-filter="example">
+    <form id="f" class="layui-form" action="www.baidu.com" lay-filter="example">
         <div class="layui-form-item">
             <label class="layui-form-label">选择框</label>
             <div class="layui-input-block">
@@ -32,15 +38,17 @@
                     <option value=""></option>
                     <option value="0">写作</option>
                     <option value="1">阅读</option>
-                    <option value="2">游戏</option>
+                    <option value="2" selected="selected">游戏</option>
                     <option value="3">音乐</option>
                     <option value="4">旅行</option>
                 </select>
             </div>
         </div>
+        <input type="button" onclick="show()" value="提交"/>
+        <input type="text" id="v" value="15"/>
     </form>
 
     <button onclick="add()">添加爱好</button>
-
+    <button onclick="changeValue()">改变值</button>
 </body>
 </html>
