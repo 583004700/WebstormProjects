@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <script src="../js/jquery.js"></script>
+    <script src="../layui/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use(['form', 'layedit', 'laydate'], function(){
+            form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,laydate = layui.laydate;
+        });
+
+        function add(){
+            $("#se").append("<option value='5'>打球</option>");
+            //更新表格内容
+            form.render();
+            console.log("vb");
+        }
+    </script>
+</head>
+<body>
+
+    <form class="layui-form" action="" lay-filter="example">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择框</label>
+            <div class="layui-input-block">
+                <select id="se" name="interest" lay-filter="aihao" lay-verify="" lay-search>
+                    <option value=""></option>
+                    <option value="0">写作</option>
+                    <option value="1">阅读</option>
+                    <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+    <button onclick="add()">添加爱好</button>
+
+</body>
+</html>
