@@ -8,29 +8,25 @@
 				margin: 0;
 				padding: 0;
 			}
-			#wrap{
-				height: 400px;
-				width: 400px;
-				border: 1px solid ;
-				margin: 0 auto;
+			html,body{
+				height: 100%;
+			}
+			body{
 				text-align: center;
 			}
-			#wrap:after{
+			body:after{
 				content: "";
 				display: inline-block;
 				height: 100%;
-				width: 0px;
-				background: pink;
 				vertical-align: middle;
 			}
-			#wrap img{
+			img{
 				vertical-align: middle;
+				-webkit-box-reflect:left 10px;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="wrap">
-			<img src="img/img2.jpg" width="150"/>
-		</div>
+		<img src="img/周冬雨.jpg" width="200" height="200"/>
 	</body>
 </html>
