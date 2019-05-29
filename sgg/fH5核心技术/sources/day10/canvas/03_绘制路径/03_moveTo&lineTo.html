@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			body{
+				background: pink;
+			}
+			#test{
+				background: gray;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="300" height="300">
+			<span>您的浏览器不支持画布元素 请您换成萌萌的谷歌</span>
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			//querySelector身上有坑
+			//拿到画布
+			var canvas = document.querySelector("#test");
+			if(canvas.getContext){
+				var ctx = canvas.getContext("2d");
+				
+				ctx.strokeStyle="pink";
+				ctx.fillStyle="green"
+				ctx.lineWidth=4;
+				
+				ctx.moveTo(100,100);
+				ctx.lineTo(50,200);
+				ctx.lineTo(150,80);
+				ctx.lineTo(150,100);
+				
+//				ctx.moveTo(200,200);
+				ctx.lineTo(200,200);
+				ctx.lineTo(200,300);
+				ctx.stroke();
+				
+			}
+		}
+		
+		
+	</script>
+</html>

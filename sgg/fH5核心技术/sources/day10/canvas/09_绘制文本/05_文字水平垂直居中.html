@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{ background:black;}
+			#c1{ background:white;}
+		</style>
+	</head>
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oC =document.getElementById('c1');
+			var oGC = oC.getContext('2d');
+			oGC.font = '60px impact';
+			oGC.textBaseline = 'middle';  //middle bottom
+			var w = oGC.measureText('尚硅谷').width;
+			oGC.fillText('尚硅谷',(oC.width - w)/2 , (oC.height - 60)/2);
+		};
+	</script>
+</html>

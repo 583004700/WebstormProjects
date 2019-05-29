@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="wrap">
+			<video src="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4"></video>
+			<div class="control">
+				<div class="btns">
+					<span class="start"></span>
+					<span class="stop"></span>
+				</div>
+				<div class="progress">
+					<div class="wrap">
+						<div class="inner"></div>
+					</div>
+					<div class="deeppink"></div>
+				</div>
+				<div class="others">
+					<div class="time">
+						<span>00:00:00/00:00:00</span>
+					</div>
+					<div class="sound">
+						<div class="switch">
+							<span></span>
+						</div>
+						<div class="progress">
+							<div class="wrap">
+								<div class="inner"></div>
+							</div>
+							<div class="deeppink"></div>
+						</div>
+					</div>
+					<div class="full-screen"> 
+						<span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/drag.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var video = document.querySelector("#wrap > video");
+			var control = document.querySelector("#wrap > .control");
+			var inner = document.querySelector("#wrap > .control > .progress > .wrap > .inner ");
+			var deeppink = document.querySelector("#wrap > .control > .progress > .deeppink ");
+			var inner2 = document.querySelector("#wrap > .control >.others .progress > .wrap > .inner ");
+			var deeppink2 = document.querySelector("#wrap > .control >.others .progress > .deeppink ");
+			
+			video.width= document.documentElement.clientWidth;
+			video.height=document.documentElement.clientHeight - control.offsetHeight;
+			
+			window.onresize=function(){
+				if(document.documentElement.clientWidth>=600){
+					video.width= document.documentElement.clientWidth;
+					video.height=document.documentElement.clientHeight - control.offsetHeight;
+				}
+			}
+			
+			
+			
+			var callback={
+				move:function(){
+					deeppink.style.width = this.offsetLeft+"px";
+				}
+			}
+			var callback2={
+				move:function(){
+					deeppink2.style.width = this.offsetLeft+"px";
+				}
+			}
+			$.drag(inner,callback);
+			$.drag(inner2,callback2);
+		}
+		
+		
+		
+	</script>
+</html>

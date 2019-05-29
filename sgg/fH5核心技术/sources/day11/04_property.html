@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video src="resource/video/test.mp4" controls width="500" height="500" ></video>
+		<audio src="resource/audio/test.mp3"  controls  ></audio>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var video = document.querySelector("video");
+			var audio = document.querySelector("audio");
+			
+			/*video.addEventListener("loadeddata",function(){
+				console.log(video.duration);
+			})*/
+			
+			/*setTimeout(function(){
+				console.log(video.duration);
+				console.log(audio.duration);
+			},500)*/
+			
+			
+			
+			/*setInterval(function(){
+				console.log(video.currentTime);
+				console.log(audio.currentTime);
+			},1000)*/
+			
+			
+			//muted和volume之间不会同步
+			//muted的优先级比较高
+			/*
+			video.muted=true;
+			audio.muted=true;
+			video.volume=0;
+			audio.volume=0;
+			console.log(video.muted)
+			console.log(audio.muted)
+			console.log(video.volume)
+			console.log(audio.volume)
+			*/
+			
+			
+			/*video.volume=0.5;
+			audio.volume=0.5;
+			video.muted=true;
+			audio.muted=true;*/
+			
+			
+			/*console.log(video.paused)
+			console.log(audio.paused)
+			console.log(video.ended)
+			console.log(audio.ended)
+			console.log(video.error)
+			console.log(audio.error)
+			console.log(video.currentSrc)
+			console.log(audio.currentSrc)*/
+			
+			video.poster="resource/img/xfz.png"
+			console.log(video.poster)
+			console.log(video.width)
+			console.log(video.height)
+			video.addEventListener("loadeddata",function(){
+				console.log(video.videoWidth)
+				console.log(video.videoHeight)
+			})
+			
+		}
+	</script>
+</html>

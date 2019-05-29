@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+				background: pink;
+			}
+			#clock{
+				background: gray;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%,-50%,0);
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="clock" width="400" height="400"></canvas>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var clock = document.querySelector("#clock");
+			if(clock.getContext){
+				var ctx = clock.getContext("2d");
+				ctx.save();
+				ctx.lineWidth = 8;
+			  	ctx.strokeStyle = "black";
+			  	ctx.lineCap = "round";
+				ctx.translate(200,200);
+				ctx.rotate(-90*Math.PI/180);
+				ctx.beginPath();
+				
+				//外层空心圆盘
+				ctx.save();
+				ctx.strokeStyle="#325FA2";
+				ctx.lineWidth = 14;
+				ctx.beginPath();
+				ctx.arc(0,0,140,0,360*Math.PI/180);
+				ctx.stroke();
+				ctx.restore();
+				
+				
+				//时针刻度
+				ctx.save();
+				for(var i=0;i<12;i++){
+					ctx.rotate(30*Math.PI/180);
+					ctx.beginPath();
+					ctx.moveTo(100,0)
+					ctx.lineTo(120,0);
+					ctx.stroke();
+				}
+				ctx.restore();
+				
+				//分针刻度
+				ctx.save();
+				ctx.lineWidth=4;
+				for(var i=0;i<60;i++){
+					ctx.rotate(6*Math.PI/180);
+					if((i+1)%5!=0){
+						ctx.beginPath();
+						ctx.moveTo(117,0)
+						ctx.lineTo(120,0);
+						ctx.stroke();
+					}
+				}
+				ctx.restore();
+				
+				ctx.restore();
+			}
+			
+			
+			
+		}
+		
+		
+		
+	</script>
+</html>

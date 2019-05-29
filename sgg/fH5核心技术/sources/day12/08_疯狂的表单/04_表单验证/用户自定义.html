@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form >
+			<input type="text"  />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var inputEl = document.querySelector("input");
+			var submit = document.querySelectorAll("input")[1];
+			submit.onclick=function(){
+				var val = inputEl.value;
+				if(val=="xfz"){
+					submit.setCustomValidity("请不要输入敏感词")
+				}else{
+					submit.setCustomValidity("")
+				}
+			}
+			
+			submit.addEventListener("invalid",function(){
+				console.log(submit.validity)
+			})
+		}
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form >
+			<input type="text" maxLength="3" />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var inputEl = document.querySelector("input");
+			inputEl.addEventListener("invalid",function(){
+				console.log(this.validity)
+			})
+		}
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			#test{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+			
+			#inner{
+				width: 100px;
+				height: 100px;
+				background: deeppink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="test">
+			<div id="inner">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		
+		var test  =document.querySelector("#test");
+		var inner  =document.querySelector("#inner");
+		
+		//dom0 默认在冒泡阶段调用回调函数
+		
+		
+		//dom2绑定事件的函数的第三个参数可以指定事件回调在哪一个阶段被执行
+		//false：冒泡
+		//true：捕获
+		test.addEventListener("click",function(){
+			console.log(1)
+		},false)
+		test.addEventListener("click",function(){
+			console.log(2)
+		},true)
+		test.addEventListener("click",function(){
+			console.log(3)
+		},false)
+		test.addEventListener("click",function(){
+			console.log(4)
+		},true)
+		
+		
+		inner.addEventListener("click",function(){
+			console.log("a")
+		},false)
+		inner.addEventListener("click",function(){
+			console.log("b")
+		},true)
+		inner.addEventListener("click",function(){
+			console.log("c")
+		},false)
+		inner.addEventListener("click",function(){
+			console.log("d")
+		},true)
+		
+		
+	</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="button1"></input>
+		<input type="button" value="button2"></input>
+		<input type="button" value="让button1开启全局捕获"></input>
+	</body>
+	<script type="text/javascript">
+		/*
+		在谷歌底下:没有全局捕获
+		在火狐底下:全局捕获有定义,但没有实际的作用
+		在ie底下: 全局捕获专治各种不服
+		*/
+	
+		
+		/* element.setCapture
+		 * 在处理一个 mousedown 事件过程中调用这个方法来把全部的鼠标事件重新定向到这个元素，
+		直到鼠标按钮被释放或者 document.releaseCapture() 被调用。*/
+		
+		
+		/* document.releaseCapture
+		 * 如果该 document 中的一个元素之上当前启用了鼠标捕获，则释放鼠标捕获。
+		通过调用 element.setCapture() 实现在一个元素上启用鼠标捕获。*/
+		
+		var btns = document.querySelectorAll("input[type=button]");
+		btns[0].setCapture();
+		btns[0].onclick=function(){
+			alert("我是button1");
+		}
+		
+	</script>
+</html>

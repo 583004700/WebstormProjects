@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			body{
+				background: pink;
+			}
+			a{
+				text-decoration: none;
+				display: block;
+				color: black;
+			}
+			ul{
+				list-style: none;
+				margin: 200px auto;
+				width: 908px;
+				height: 38px;
+				border: 1px solid;
+				overflow: hidden;
+			}
+			ul>li{
+				float: left;
+				height: 100%;
+				width: 100px;
+				text-align: center;
+				line-height: 38px;
+			}
+			ul>li:not(:last-child){
+				border-right:1px solid ;
+			}
+			ul>li>div.down{
+				height: 100%;
+				background: yellow;
+				transition:.5s ;
+			}
+			ul>li:hover .down{
+				transform: translateY(-38px);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<audio></audio>
+			<ul class="nav">
+				<li data-flag="a">
+					<a href="javascript:;">我的主页</a>
+					<div class="down"></div>
+				</li>
+				<li >
+					<a href="javascript:;">新闻头条</a>
+					<div class="down"></div>
+				</li>
+				<li data-flag="b">
+					<a href="javascript:;">电视剧</a>
+					<div class="down"></div>
+				</li>
+				<li >
+					<a href="javascript:;">最新电影</a>
+					<div class="down"></div>
+				</li>
+				<li data-flag="c">
+					<a href="javascript:;">腿长1米8</a>
+					<div class="down"></div>
+				</li>
+				<li>
+					<a href="javascript:;">小说大全</a>
+					<div class="down"></div>
+				</li>
+				<li data-flag="d">
+					<a href="javascript:;">旅游度假</a>
+					<div class="down"></div>
+				</li>
+				<li>
+					<a href="javascript:;">正品团购</a>
+					<div class="down"></div>
+				</li>
+				<li data-flag="e">
+					<a href="javascript:;">今日团购</a>
+					<div class="down"></div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		http://s8.qhimg.com/share/audio/piano1/g4.mp3
+		var liNodes = document.querySelectorAll(".nav>li"); 
+		var audio = document.querySelector("audio"); 
+		for(var i=0;i<liNodes.length;i++){
+			liNodes[i].addEventListener("mouseenter",function(){
+//				var flag = this.getAttribute("data-flag");
+				var flag = this.dataset.flag==undefined? this.dataset.flag: this.getAttribute("data-flag");
+				if(flag){
+					audio.src="http://s8.qhimg.com/share/audio/piano1/"+flag+"4.mp3";
+					audio.play();
+				}
+			})
+		}
+		
+	</script>
+</html>

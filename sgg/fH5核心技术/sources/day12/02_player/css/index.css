@@ -1,0 +1,315 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* custom */
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+li {
+  list-style: none;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+html,
+body {
+  width: 100%;
+}
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#wrap {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #383838;
+  font-size: 0;
+}
+#wrap .control {
+  min-width: 600px;
+  position: relative;
+  height: 25px;
+  background: #2A2A2A;
+}
+#wrap .control .btns {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55px;
+  height: 25px;
+  text-align: center;
+}
+#wrap .control .btns > span {
+  display: inline-block;
+  width: 9px;
+  height: 11px;
+  background: url(../img/icon.png) no-repeat;
+  margin-top: 7px;
+}
+#wrap .control .btns > span:nth-child(1) {
+  background-position: 0px -23px;
+  margin-right: 10px;
+}
+#wrap .control .btns > span:nth-child(1).active {
+  background-position: 0px -11px;
+}
+#wrap .control .btns > span:nth-child(2) {
+  background-position: 0px 0px;
+}
+#wrap .control > .progress {
+  margin: 0 230px 0 55px;
+  height: 25px;
+  position: relative;
+}
+#wrap .control > .progress > .wrap {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  margin-top: 11px;
+  background: #737373;
+}
+#wrap .control > .progress > .wrap .inner {
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  background: white;
+  border-radius: 2px ;
+  margin-top: -2px;
+}
+#wrap .control > .progress > .deeppink {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 3px;
+  margin-top: 11px;
+  background: deeppink;
+}
+#wrap .control .others {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 230px;
+  height: 25px;
+  z-index: 2;
+}
+#wrap .control .others > div {
+  height: 25px;
+  float: left;
+}
+#wrap .control .others .time {
+  width: 120px;
+  font-size: 12px;
+  color: white;
+  line-height: 25px;
+  text-align: center;
+}
+#wrap .control .others .sound {
+  width: 80px;
+}
+#wrap .control .others .sound > div {
+  height: 25px;
+  float: left;
+}
+#wrap .control .others .sound .switch {
+  width: 20px;
+  text-align: center;
+}
+#wrap .control .others .sound .switch > span {
+  display: inline-block;
+  margin: 7px auto;
+  width: 12px;
+  height: 12px;
+  background: url(../img/icon.png) no-repeat;
+  background-position: 0 -34px;
+}
+#wrap .control .others .sound .switch > span.active {
+  background-position: 0 -46px;
+}
+#wrap .control .others .sound .progress {
+  width: 60px;
+  position: relative;
+}
+#wrap .control .others .sound .progress > .wrap {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  margin-top: 11px;
+  background: #737373;
+}
+#wrap .control .others .sound .progress > .wrap .inner {
+  position: absolute;
+  width: 9px;
+  height: 7px;
+  background: white;
+  border-radius: 2px ;
+  margin-top: -2px;
+}
+#wrap .control .others .sound .progress > .deeppink {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 3px;
+  margin-top: 11px;
+  background: deeppink;
+}
+#wrap .control .others .full-screen {
+  width: 30px;
+  height: 25px;
+  text-align: center;
+}
+#wrap .control .others .full-screen > span {
+  display: inline-block;
+  margin: 7px auto;
+  width: 11px;
+  height: 11px;
+  background: url(../img/icon.png) no-repeat;
+  background-position: 0 -58px;
+}
+#wrap .control .others .full-screen > span.active {
+  background-position: 0 -71px;
+}
+/*# sourceMappingURL=index.css.map */

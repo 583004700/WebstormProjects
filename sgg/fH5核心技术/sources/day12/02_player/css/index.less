@@ -1,0 +1,135 @@
+@import "reset.less";
+
+.progress-mixin(){
+    position: relative;
+    &>.wrap{
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        margin-top: 11px;
+        background: #737373;
+        .inner{
+            position: absolute;
+            width: 9px;
+            height: 7px;
+            background: white;
+            border-radius:2px ;
+            margin-top: -2px;
+        }
+    }
+     &>.deeppink{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 3px;
+        margin-top: 11px;
+        background: deeppink;
+    }
+}
+
+
+#wrap{
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: #383838;
+    font-size: 0;
+    .control{
+        min-width: 600px;
+        position: relative;
+        height: 25px;
+        background: #2A2A2A;
+        .btns{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 55px;
+            height: 25px;
+            text-align: center;
+            &>span{
+                display: inline-block;
+                width: 9px;
+                height: 11px;
+                background: url(../img/icon.png) no-repeat;
+                margin-top:7px;
+                &:nth-child(1){
+                    background-position: 0px -23px;
+                    margin-right: 10px;
+                    &.active{
+                        background-position: 0px -11px;
+                    }
+                }
+                &:nth-child(2){
+                    background-position: 0px 0px;
+                }
+            }
+        };
+        & >.progress{
+            margin: 0 230px 0 55px;
+            height: 25px;
+            .progress-mixin()
+        };
+        .others{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 230px;
+            height: 25px;
+            z-index: 2;
+            &>div{
+                height: 25px;
+                float: left;
+            }
+            .time{
+                width: 120px;
+                font-size: 12px;
+                color: white;
+                line-height: 25px;
+                text-align: center;
+            }
+            .sound{
+                width: 80px;
+                &>div{
+                    height: 25px;
+                    float: left;
+                }
+                .switch{
+                    width: 20px;
+                    text-align: center;
+                    &>span{
+                        display: inline-block;
+                        margin: 7px auto;
+                        width: 12px;
+                        height: 12px;
+                        background: url(../img/icon.png) no-repeat;
+                        background-position:0 -34px;
+                        &.active{
+                            background-position:0 -46px;
+                        }
+                    }
+                }
+                .progress{
+                    width: 60px;
+                    .progress-mixin();
+                }
+            }
+            .full-screen{
+                width: 30px;
+                height: 25px;
+                text-align: center;
+                &>span{
+                     display: inline-block;
+                     margin: 7px auto;
+                     width: 11px;
+                     height: 11px;
+                     background: url(../img/icon.png) no-repeat;
+                     background-position: 0 -58px;
+                     &.active{
+                         background-position: 0 -71px;
+                     }
+                }
+            }
+        }
+    }
+}

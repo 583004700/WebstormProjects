@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video  controls width="500" height="500" >
+			<source src="resource/video/test.mp4"></source>
+		</video>
+		<audio   controls  >
+			<source src="resource/audio/test.mp3"></source>
+		</audio>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var video = document.querySelector("video");
+			var audio = document.querySelector("audio");
+			
+			var source = document.querySelectorAll("source");
+			/*video.src="xxx";
+			audio.src="xxx";*/
+			source[0].src="xxx";
+			source[1].src="xxx";
+			video.load();
+			audio.load();
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox"   name="qhf"/>
+		<input type="button" value="test"></input>
+	</body>
+	<script type="text/javascript">
+//	浏览器只认property
+		var qhf = document.querySelector("input[type=checkbox]");
+		var btn = document.querySelector("input[type=button]");
+		btn.onclick=function(){
+			debugger
+			qhf.checked=true;
+		}
+	</script>
+</html>
