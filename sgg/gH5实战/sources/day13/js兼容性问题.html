@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<!--<div id="inner">inner</div>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+			ev||event
+			offsetParent
+			事件绑定(DOM2)
+				事件流：捕获  目标处理 冒泡
+					捕获 冒泡的前提：有嵌套的dom结构
+			鼠标滚轮
+		*/
+		var wrap = document.querySelector("#wrap");
+		
+		if(wrap.addEventListener){
+			wrap.addEventListener("click",function(){console.log(1,this);},true)
+			wrap.addEventListener("click",function(){console.log(2);})
+			wrap.addEventListener("click",function(){console.log(3);})
+		}else{
+			wrap.attachEvent("onclick",function(){console.log(1,this);})
+			wrap.attachEvent("onclick",function(){console.log(2);})
+			wrap.attachEvent("onclick",function(){console.log(3);})
+		}
+		
+		
+		
+	</script>
+</html>

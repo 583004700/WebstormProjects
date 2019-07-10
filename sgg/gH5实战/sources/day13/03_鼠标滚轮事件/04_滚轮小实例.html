@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				width: 100%;
+				height: 200px;
+				background: pink;
+			}
+			
+		</style>
+	</head>
+	<body style="height: 3000px;">
+		<div id="test"></div>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var testNode = document.querySelector("#test");
+			if(testNode.addEventListener){
+				testNode.addEventListener("DOMMouseScroll",fn);
+			}
+			testNode.onmousewheel=fn;
+			
+			
+			function fn(ev){
+				ev=ev||event;
+				var dir="";
+				if(ev.wheelDelta){
+					dir = ev.wheelDelta>0?"up":"down";
+				}
+				if(ev.detail){
+					dir = ev.detail<0?"up":"down";
+				}
+				
+				
+				/*
+				 对样式进行设置(特殊性最高)
+					node.style.height 
+				对样式进行读取
+					node.style.height (读不到css样式表中属性的)
+					读取一般通过api来进行读取
+					testNode.getComputedStyle()
+				*/
+				switch (dir){
+					case "up":
+					testNode.style.height = testNode.offsetHeight -10+"px";
+					//...
+						break;
+					case "down":
+					testNode.style.height = testNode.offsetHeight +10+"px";
+					//....
+						break;
+				}
+				
+				//禁止事件的默认行为  dom2
+				if(ev.preventDefault){
+					ev.preventDefault();
+				}
+				
+				
+				//禁止事件的默认行为  dom0
+				return false;
+			}
+			
+		}
+		
+		
+	</script>
+</html>

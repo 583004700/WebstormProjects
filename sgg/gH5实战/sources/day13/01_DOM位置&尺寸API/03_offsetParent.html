@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html id="html">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{position: absolute;}
+			#inner1{position: fixed;}
+			#inner2{position: relative;}
+			#inner3{position: fixed;}
+			
+		</style>
+	</head>
+	<body id="body">
+		<div id="wrap">wrap
+			<div id="inner1">inner1
+				<div id="inner2">inner2
+					<div id="inner3"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+		ev||event
+		鼠标滚轮
+		事件绑定
+		offsetParent
+			1.父级是否有定位(4种)
+			2.本身是否有定位(4种)
+			3.浏览器不一样(5大pc浏览器+老祖宗(ie 6 7 8))
+			
+			4*4*8 = 128
+			
+			本身定位为fixed
+					==> offsetParent:null（不是火狐）
+					==> offsetParent:body（火狐）
+			
+			本身定位不为fixed
+					父级没有定位
+						==> offsetParent:body
+					父级有定位
+						==> offsetParent:定位父级
+		*/
+		
+		window.onload=function(){
+			console.log(inner3.offsetParent)
+		}
+	</script>
+</html>
