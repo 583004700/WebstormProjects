@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="test"></div>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload=function(){
+			var testNode = document.querySelector("#test");
+			if(testNode.addEventListener){
+				testNode.addEventListener("DOMMouseScroll",fn);
+			}
+			testNode.onmousewheel=fn;
+			
+			
+			function fn(ev){
+				ev=ev||event;
+				var dir="";
+				if(ev.wheelDelta){
+					dir = ev.wheelDelta>0?"up":"down";
+				}
+				if(ev.detail){
+					dir = ev.detail<0?"up":"down";
+				}
+				
+				console.log(dir)
+			}
+			
+		}
+		
+		
+	</script>
+</html>

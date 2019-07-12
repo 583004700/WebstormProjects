@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html id="html">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				/*overflow: hidden;*/
+			}
+			#wrap{position: absolute;background: pink;left: 200px;top: 200px;}
+			#inner1{position: absolute;background: deeppink;left: 150px;top: 150px;}
+			div{
+				width: 200px;
+				height: 200px;
+				border: 10px solid;
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body id="body" style="height: 3000px;">
+		<div id="wrap">wrap
+			<div id="inner1">
+				inner1
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * getBoundingClientRect：一个元素四个角！的相对位置
+		 * getBoundingClientRect + 滚动条滚动时元素滚动的距离---> 绝对位置
+		 * 
+			代表元素border-box的尺寸
+			height
+			width
+			
+			元素左上角的相对位置
+			left
+			top
+			
+			元素右下角的相对位置
+			right
+			bottom
+			
+		*/
+		window.onload=function(){
+			var inner1 = document.querySelector("#inner1");
+			var point = inner1.getBoundingClientRect();
+			console.log(point);
+		}
+	</script>
+</html>

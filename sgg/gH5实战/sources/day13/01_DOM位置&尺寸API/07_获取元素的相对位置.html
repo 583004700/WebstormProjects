@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html id="html">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				/*overflow: hidden;*/
+			}
+			#wrap{position: absolute;background: pink;left: 200px;top: 200px;}
+			#inner1{position: absolute;background: deeppink;left: 150px;top: 150px;}
+			div{
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body id="body" style="height: 3000px;">
+		<div id="wrap">wrap
+			<div id="inner1">
+				inner1
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+		 获取元素在页面中的位置
+			绝对位置:到body的距离
+			相对位置:到视口的距离
+			
+			
+			本身定位为fixed
+					==> offsetParent:null（不是火狐）
+							offsetTop和offsetLeft也是参照于body的
+					==> offsetParent:body（火狐）
+			本身定位不为fixed
+					父级没有定位
+						==> offsetParent:body
+					父级有定位
+						==> offsetParent:定位父级
+			
+			
+		*/
+		window.onload=function(){
+			var inner1 = document.querySelector("#inner1");
+			var point1 = getPointAb(inner1);
+			var point2 = getPointRe(inner1);
+			console.log(point1,point2);
+			
+			
+			
+			//boder margin会影响这个函数的取值
+			function getPointRe(node){
+				//while循环叠加offsetParent的offsetTop和offsetLeft
+				var x =0;
+				var y = 0;
+				while(node){
+					x+=node.offsetLeft;
+					y+=node.offsetTop;
+					
+					node = node.offsetParent;
+				}
+				
+				var L = document.documentElement.scrollLeft||document.body.scrollLeft;
+				var T = document.documentElement.scrollTop||document.body.scrollTop;
+				
+				return {x:x-L,y:y-T};
+			}
+			
+			
+			
+			//boder margin会影响这个函数的取值
+			function getPointAb(node){
+				//while循环叠加offsetParent的offsetTop和offsetLeft
+				var x =0;
+				var y = 0;
+				while(node){
+					x+=node.offsetLeft;
+					y+=node.offsetTop;
+					
+					node = node.offsetParent;
+				}
+				return {x:x,y:y};
+			}
+		}
+	</script>
+</html>
