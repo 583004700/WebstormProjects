@@ -1388,7 +1388,7 @@ html,
   margin: 0 auto;
   width: 230px;
   height: 500px;
-  background: linear-gradient(#ffee00 22%, #000000 22%, #000000 27%, #ffee00 27%, #ffee00 70%, #667ab4 70%);
+  background: linear-gradient(#fe0 22%, #000 22%, #000 27%, #fe0 27%, #fe0 70%, #667ab4 70%);
   border-radius: 100px ;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .hair {
@@ -1400,7 +1400,7 @@ html,
   top: -40px;
   transform: skew(-10deg) rotate(10deg);
   transform-origin: 2px 30px;
-  box-shadow: -50px 20px 0 0 #000000, -25px 25px 0 0 #0000ff, 35px 10px 0 0 #0000ff, 70px 7px 0 0 #000000;
+  box-shadow: -50px 20px 0 0 #000, -25px 25px 0 0 #00f, 35px 10px 0 0 #00f, 70px 7px 0 0 #000;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .eye {
   position: relative;
@@ -1413,7 +1413,7 @@ html,
   background-color: #fff;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .eyeLeft {
-  box-shadow: -3px 0 5px 8px #555555;
+  box-shadow: -3px 0 5px 8px #555;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .eyeRight {
   box-shadow: 3px 0 5px 8px #555 ;
@@ -1425,12 +1425,12 @@ html,
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: radial-gradient(circle, #000000 38%, #888888 30%);
+  background: radial-gradient(circle, #000 38%, #888 30%);
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .mouth {
   width: 100px;
   height: 60px;
-  background: linear-gradient(0deg, #ffffff 30px, #000000 30px, #000000 32px, #ffffff 32px);
+  background: linear-gradient(0deg, #fff 30px, #000 30px, #000 32px, #fff 32px);
   border-radius: 80px 80px 40px 40px;
   border: solid 1px black;
   overflow: hidden;
@@ -1495,7 +1495,7 @@ html,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-image: linear-gradient(45deg, #000000 30%, transparent 30%, transparent 70%, #000000 70%), linear-gradient(-45deg, #000000 30%, transparent 30%, transparent 70%, #000000 70%), radial-gradient(circle, #000000 15%, transparent 15%, transparent 35%, #000000 35%, #000000 42%, transparent 42%);
+  background-image: linear-gradient(45deg, #000 30%, transparent 30%, transparent 70%, #000 70%), linear-gradient(-45deg, #000 30%, transparent 30%, transparent 70%, #000 70%), radial-gradient(circle, #000 15%, transparent 15%, transparent 35%, #000 35%, #000 42%, transparent 42%);
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .arm {
   position: absolute;
@@ -1525,7 +1525,7 @@ html,
   position: absolute;
   width: 85px;
   height: 50px;
-  background: linear-gradient(90deg, #666666 48%, #000000 52%, #666666 52%);
+  background: linear-gradient(90deg, #666 48%, #000 52%, #666 52%);
   top: 145px;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .handLeft {
@@ -1541,7 +1541,7 @@ html,
   display: inline-block;
   width: 40px;
   height: 70px;
-  background: linear-gradient(#667ab4 50%, #666666 50%);
+  background: linear-gradient(#667ab4 50%, #666 50%);
   border-bottom: 8px #000 solid;
 }
 #wrap #viewList .view.view9 .content .bottom #yelPer .bottom {
@@ -1575,3 +1575,4 @@ html,
   right: 5%;
   bottom: -80px;
 }
+/*# sourceMappingURL=index.css.map */
